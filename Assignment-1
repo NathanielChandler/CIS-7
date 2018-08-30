@@ -81,6 +81,33 @@ bool isFunction(string input)
 		}
 	}
 
+	//Parenthesis check
+	int openP = 0;
+	int closeP = 0;
+	for (int i = 0; i < input.length(); i++)
+	{
+		if (input[i] == '(')
+		{
+			openP++;
+			if (!isalpha(input[i + 1]))
+			{
+				return false;
+			}
+		}
+		if (input[i] == ')')
+		{
+			closeP++;
+			if (!isalpha(input[i - 1]))
+			{
+				return false;
+			}
+		}
+	}
+	if (openP != closeP)
+	{
+		return false;
+	}
+
 
 	//Logic
 	for (char element : input)
