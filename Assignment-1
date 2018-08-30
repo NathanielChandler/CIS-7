@@ -1,0 +1,65 @@
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+bool isFunction(string input);
+
+int main()
+{
+	bool done = false;
+	while (!done)
+	{
+		vector<bool> statement;
+		string input;
+		cout << "Enter a Function:" << endl;
+		getline(cin, input);
+
+		if (isFunction(input))
+		{
+			cout << "This is a well formed function" << endl;
+		}
+		else
+		{
+			cout << "This is not a well formed function" << endl;
+		}
+		cout << "Would you like to run again? (y/n)" << endl;
+
+		cin >> input;
+		cin.ignore();
+
+		if (input == "y" || input == "Y")
+		{
+			done = false;
+		}
+		else
+		{
+			done = true;
+		}
+	}
+	system("pause");
+	return 0;
+}
+
+bool isFunction(string input)
+{
+	int charLimit = 0;
+	int connectLimit = 0;
+	for (char element : input)
+	{
+		switch (element)
+		{
+		case '^': case 'v': case 'V': connectLimit += 2; charLimit = 0; break;
+
+		case '!': case '~': case '-': case '`': connectLimit = 2; charLimit = 0; break;
+
+		case ' ': break;
+
+		default: connectLimit = 0; charLimit++;
+		}
+
+		if (charLimit >= 2 || connectLimit >= 3) return false;
+	}
+
+	return true;
+}
