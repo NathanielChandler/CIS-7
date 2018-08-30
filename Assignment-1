@@ -3,6 +3,9 @@
 #include <vector>
 using namespace std;
 
+//Nathaniel Chandler
+//Assignment 1
+
 bool isFunction(string input);
 
 int main()
@@ -45,13 +48,38 @@ bool isFunction(string input)
 {
 	int charLimit = 0;
 	int connectLimit = 0;
+	char previous = ' ';
 	for (char element : input)
 	{
 		switch (element)
 		{
 		case '^': case 'v': case 'V': connectLimit += 2; charLimit = 0; break;
 
-		case '!': case '~': case '-': case '`': connectLimit = 2; charLimit = 0; break;
+		case '!': case '~': case '`': 
+			if (previous == '!' || previous == '~' ||  previous == '`')
+			{
+				connectLimit = 2;
+				charLimit = 0;
+			}
+			else
+			{
+				connectLimit = 4;
+			}
+			break;
+
+		case '-': case '=': connectLimit++; break;		
+								
+		case '>':
+			if (previous == '-' || previous == '=')
+			{
+				connectLimit = 2;
+				charLimit = 0;
+			}
+			else
+			{
+				connectLimit = 4;
+			}
+			break;
 
 		case ' ': break;
 
@@ -59,6 +87,8 @@ bool isFunction(string input)
 		}
 
 		if (charLimit >= 2 || connectLimit >= 3) return false;
+
+		previous = element;
 	}
 
 	return true;
