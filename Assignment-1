@@ -51,7 +51,7 @@ bool isFunction(string input)
 	// Bookend Checks
 	for (int i = 0; i < input.length(); i++)
 	{
-		if (input[i] == ' ')
+		if (input[i] == ' ' || input[i] == '(')
 		{
 			continue;
 		}
@@ -67,7 +67,7 @@ bool isFunction(string input)
 
 	for (int i = input.length() - 1; i > 0; i--)
 	{
-		if (input[i] == ' ')
+		if (input[i] == ' ' || input[i] == ')')
 		{
 			continue;
 		}
