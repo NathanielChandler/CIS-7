@@ -8,6 +8,13 @@
  |
  Show that (p->r) ^ (q->r) <=> (p v q) -> r
  |
+    (p->r) ^ (q->r) <=> (p v q) -> r
+    ('p v r) ^ ('q v r) <=> (p v q) -> r    Implication
+    (r v 'p) ^ (r v 'q) <=> (p v q) -> r    Communiative
+    r v ('p ^ 'q) <=> (p v q) -> r          Distributive
+    ('p ^ 'q) v r <=> (p v q) -> r          Communiative
+    (p v q)' v r <=> (p v q) -> r           DeMorgan's Law
+    (p v q) -> r <=> (p v q) -> r           Implication
  |
  Give an interpretation to prove that the following wff is not valid: (Ǝx)A(x) ^ (Ǝx)B(x) -> (Ǝx)(A(x) ^ B(x))
  |
