@@ -18,5 +18,7 @@
  |
  Give an interpretation to prove that the following wff is not valid: (Ǝx)A(x) ^ (Ǝx)B(x) -> (Ǝx)(A(x) ^ B(x))
  |
-      if x = 
+      if x = programmers, A(x) = programmers who use the light theme, B(x) = programmers who use the dark theme
+      Some programmers use the light theme, and some programmers use the dark theme. 
+      There are no programmers that use the light theme and the dark theme.
  |
