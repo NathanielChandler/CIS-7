@@ -44,14 +44,19 @@ to the other. State which definition or law of logic justifies each equivalence 
 chain.
 ```
  - [ ] (p ∧ q) → r <=> p → (q → r )
-   - (p ∧ q) → r <=> p → (q' v r )                   Implication
-   - (p ∧ q) → r <=> p' v (q' v r )                  Implication
-   - (p ∧ q) → r <=> (p' v q') v r                   Associative
-   - (p ∧ q) → r <=> (p ^ q)' v r                    DeMorgan's Law
-   - (p ∧ q) → r <=> (p ∧ q) → r                     Implication
+   - (p ∧ q) → r <=> p → (q' v r )               :    Implication
+   - (p ∧ q) → r <=> p' v (q' v r )              :    Implication
+   - (p ∧ q) → r <=> (p' v q') v r               :    Associative
+   - (p ∧ q) → r <=> (p ^ q)' v r                :    DeMorgan's Law
+   - (p ∧ q) → r <=> (p ∧ q) → r                 :    Implication
  
  - [ ] (q ∨ r) → p <=> (q → p)∧(r → p)
- 
+   - (q ∨ r) → p <=> (q' v p)∧(r' v p)             :    Implication
+   - (q ∨ r) → p <=> (p v q')∧(p v r')             :    Communiative
+   - (q ∨ r) → p <=> p v (q' ^ r')                 :    Distributive
+   - (q ∨ r) → p <=> (q' ^ r') v p                 :    Communiative
+   - (q ∨ r) → p <=> (q v r)' v p                  :    DeMorgan's Law
+   - (q ∨ r) → p <=> (q v r) → p                   :    Implication
  
 ## Part 4:
 ```
