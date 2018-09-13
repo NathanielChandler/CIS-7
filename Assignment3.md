@@ -6,10 +6,10 @@ Let S = it is sunny, C = camping is fun, H = the homework is
 done, and M = mathematics is easy.
 ```  
  - [ ] Translate into English: (M → H)∧(S →C)
-   * If mathematics is easy, then the homework is done, and if it is sunny, then camping is fun.
+   - If mathematics is easy, then the homework is done, and if it is sunny, then camping is fun.
  
  - [ ] Translate into Propositional Logic: “Mathematics is easy or camping is fun, as long as it is sunny and the homework is done.”
-   * (M v C) ^ (S ^ H)
+   - (M v C) ^ (S ^ H)
  
  
 ## Part 2: 
@@ -43,10 +43,14 @@ two propositions are logically equivalent by finding a chain of equivalences fro
 to the other. State which definition or law of logic justifies each equivalence in the
 chain.
 ```
- - [ ] (p ∧ q) → r , p → (q → r )
+ - [ ] (p ∧ q) → r <=> p → (q → r )
+   - (p ∧ q) → r <=> p → (q' v r )                   Implication
+   - (p ∧ q) → r <=> p' v (q' v r )                  Implication
+   - (p ∧ q) → r <=> (p' v q') v r                   Associative
+   - (p ∧ q) → r <=> (p ^ q)' v r                    DeMorgan's Law
+   - (p ∧ q) → r <=> (p ∧ q) → r                     Implication
  
- 
- - [ ] (q ∨r ) → p, (q → p)∧(r → p)
+ - [ ] (q ∨ r) → p <=> (q → p)∧(r → p)
  
  
 ## Part 4:
