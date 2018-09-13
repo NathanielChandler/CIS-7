@@ -24,7 +24,7 @@ done, and M = mathematics is easy.
 
    - Tautology
  
- - [ ] Use a truth table to determine whether this is a tautology, contradiction, or neither:  ((A → B)∧(B → ¬A)) → A
+  - [ ] Use a truth table to determine whether this is a tautology, contradiction, or neither:  ((A → B)∧(B → ¬A)) → A
  
 | A | B | ¬A | A → B    | B -> ¬A | (A → B)∧(B → ¬A) | ((A → B)∧(B → ¬A)) → A
 |---|---|--- | -------- | ------- | ---------------- | --------------------------
@@ -76,6 +76,12 @@ City(x) mean “x is a city,” Lives(x,y) mean “x lives in y.”
 Assuming: p → (q ∧ r ), s → r , r → p
 Prove: s → q.
 ```
+- r → q <=> p → (q ∧ r )            : Modus Ponen
+- p → q <=> p → (q ∧ r )            : Modus Ponen
+- p → q <=> (p → q) ∧ (p → r)       : Distributive
+- p → q <=> (p → q) ∧ (p → p)       : Modus Ponen
+- p → q <=> (p → q) ∧ T             : Tautology
+- p → q <=> p → q                   : Identity
 
 
 ```
