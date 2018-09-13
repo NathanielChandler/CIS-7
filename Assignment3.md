@@ -6,10 +6,10 @@ Let S = it is sunny, C = camping is fun, H = the homework is
 done, and M = mathematics is easy.
 ```  
  - [ ] Translate into English: (M → H)∧(S →C)
- 
+   * If mathematics is easy, then the homework is done, and if it is sunny, then camping is fun.
  
  - [ ] Translate into Propositional Logic: “Mathematics is easy or camping is fun, as long as it is sunny and the homework is done.”
- 
+   * (M v C) ^ (S ^ H)
  
  
 ## Part 2: 
@@ -47,7 +47,7 @@ City(x) mean “x is a city,” Lives(x,y) mean “x lives in y.”
   
 ## Extra Credit:
 ```
-Assuming: p → (q ∧r ), s → r , r → p
+Assuming: p → (q ∧ r ), s → r , r → p
 Prove: s → q.
 ```
 
