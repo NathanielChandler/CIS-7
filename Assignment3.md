@@ -63,11 +63,12 @@ chain.
 Let Loves(x,y) mean “x loves y,” Traveler(x) mean “x is a traveler,”
 City(x) mean “x is a city,” Lives(x,y) mean “x lives in y.”
 ```
- - [ ] Translate into English: ∃x∀y∀z(C i t y(x)∧Tr aveler (y)∧Li ves(z,x)) → (Loves(y,x)∧ ¬Loves(z,x))
- 
+ - [ ] Translate into English: ∃x∀y∀z(City(x)∧Traveler(y)∧Lives(z,x)) → (Loves(y,x)∧ ¬Loves(z,x))
+   - If there exists a City and every Traveler exists and every Citizen lives in that city, 
+   then every Traveler loves that city, and every Citizen does not love that city.  
  
  - [ ] Translate into Predicate Logic: “No traveler loves the city they live in.”
- 
+   - ∀y[Traveler(y) -> ∃x((City(x)^Lives(y,x)) -> ¬Loves(y,x))]
  
   
 ## Extra Credit:
