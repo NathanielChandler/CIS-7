@@ -88,4 +88,10 @@ Prove: s → q.
 Assuming: ¬(r ∨ s), ¬p → s, p → q. 
 Prove: q
 ```
-  
+- q <=> ¬(r ∨ s)                    : Modus Ponen
+- p <=> ¬(r ∨ ¬p)                   : Modus Ponen
+- p <=> ¬(¬p v r)                   : Communiative
+- p <=> ¬(p → r )                   : Implication
+- *To Be Continued*
+
+
