@@ -1,0 +1,108 @@
+WIP
+// ConsoleApplication1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <string>
+#include <iostream>
+#include <cmath>
+#include <vector>
+using namespace std;
+//string getInput();
+void hanoiTower(int from, int to, vector<int> towers[]);
+
+int main()
+{
+	//auto input = getInput();
+	//cout << input;
+
+
+	// first integer is number of rings ; second is number of places
+	//int towers[3][3] = { {1,NULL,NULL},{ NULL,2,NULL },{ NULL,NULL,3 }, };
+	vector<int> towers[3];
+	towers[0] = { 3,2,1 };
+	hanoiTower(0, 1, towers);
+	system("pause");
+    return 0;
+}
+/*
+string getInput()
+{
+	string in;
+	cout << "Enter a command: ";
+	cin >> in;
+
+	string command = &in.back;
+	for (char character : in)
+	{
+		if (!isnan(character))
+		{
+			command.push_back(character);
+			break;
+		}
+	}
+	return command;
+}
+*/
+/*
+void hanoiTower(int from, int to, int towers[][3])
+{
+	int  *topFrom = 0;
+	int *topTo = 0;
+	for (int i = 0; i < 3; i++)
+	{
+		if (towers[i][from] != NULL && ( towers[i + 1][from] == NULL || i == towers.size -1))
+		{
+			topFrom = &towers[i][from];
+		}
+		if (towers[i][to] != NULL && towers[i + 1][to] == NULL)
+		{
+			topTo = &towers[i][to];
+		}
+	}
+	if (topFrom < topTo)
+	{
+
+	}
+	else
+	{
+		cout << "Invalid Move";
+	}
+	cout << "this works";
+}
+
+*/
+
+void hanoiTower(int from, int to, vector<int> towers[])
+{
+	
+	for (int i = 0; i < towers->size; i++)
+	{
+		cout << i + 1 << "|";
+		for (int j = 0; j < towers[0].size(); j++)
+		{
+			if (towers[i][j] != 0 && towers[i][j] != NULL)
+			{
+				cout << towers[i][j];
+			}
+			else
+			{
+				cout << "-";
+			}
+		}
+		cout << endl;
+	}
+	
+	int topFrom = towers[from].back;
+	int topTo = towers[to].back;
+	if (topFrom < topTo)
+	{
+		towers[to].push_back(topFrom);
+		towers[from].pop_back();
+	}
+	else
+	{
+		cout << "Invalid Move";
+	}
+	cout << "this works";
+}
