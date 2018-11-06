@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+void gcd(int high, int low);
+
+int main() {
+	bool done = false;
+
+	while (!done) {
+		int input[3];
+		char repeat;
+
+		cout << "Input first number: ";
+		cin >> input[0];
+		cout << "Input second number: ";
+		cin >> input[1];
+
+		if (input[0] > 0 && input[1] > 0) {
+			if (input[0] > input[1]) {
+				 gcd(input[0], input[1]);
+			}
+			else {
+				gcd(input[1], input[0]);
+			}
+		}
+		else {
+			cout << "values are not positive" << endl;
+		}
+
+		cout << "\nWould you like to run the program again? (y/n) :";
+		cin >> repeat;
+		if (repeat == 'n' || repeat == 'N') {
+			done = true;
+		}
+	}
+
+	return 0;
+}
+
+void gcd(int high, int low) {
+	if (low == 0) {
+		cout  << high << endl ;
+		return;
+	} 
+	else {
+		return gcd(low, high % low);
+	}
+}
