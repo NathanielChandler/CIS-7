@@ -12,7 +12,7 @@ Prove each of the following.  Indicate which proof method you are using and show
         
  
  - [ ]  If n = 25, 100, or 169, then n is a perfect square and is the sum of two perfect squares.
-        Direct Proof 
+        Exaustive Proof 
         - Assume n = 25
            - sqrt(25) = 5 : true
            - 25 = 3^2 + 4^2 = 9 + 16 : true
@@ -26,11 +26,35 @@ Prove each of the following.  Indicate which proof method you are using and show
  
  - [ ]  The sum of two odd integers is even.  
            - Hint: By definition, even integers can be expressed as 2n, thus odd integers can be expressed as 2n + 1	
-           
+	Direct Proof
+           - Assume x is odd, therefore x = 2n+1, and assume 2n is even
+	   - x + x = 2x
+	   - 2x = 2(2n+1)
+	   - 2x = 4n + 2
+	   - 2x = 2(2n) + 2
+	   - An even number multiplied by an even number is still even( 4 * 2n = 8n )
+	   - An even number added to an even number is even (2 + 2n = 2n+2, which is 1 more than 2n+1)
+	   - 2x = even 
+	   Therefore, the sum of two odd integers is even
  
  - [ ]  The sum of an even integer and it's square is even
+ 	Direct Proof
+	   - Assume x is even, therefore x = 2n
+	   - x + x^2 = 2n + (2n)^2
+	   - x + x^2 = 2n + 4n^2
+	   - An even number multiplied by an even number is still even( 4 * 2n = 8n )
+	   - An even number added to an even number is even (2 + 2n = 2n+2, which is 1 more than 2n+1)
+	   - x is even, and so is x^2
+	   Therefore, the sum of an even integera and it's square is even
  
  - [ ]  If n squared is odd, then n is odd
+ 	Contradiction
+	   - assume n is even, that is n = 2x, and that n squared is odd
+	   - (2x)^2 = 4x^2
+	   - 4x^2 = 2x * 2x
+	   - An even number multiplied by an even number is still even( 4 * 2n = 8n )
+	   - if n is even, n^2 is even, and not odd
+	   Therefore, if n is odd, n^2 is odd
  
 
 ## Part 2: (10 points)
