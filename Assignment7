@@ -27,8 +27,15 @@ int main()
 	//auto input = getInput();
 	//cout << input;
 
-	int towerSize = 3;
-	vector<int> tower = { 3,2,1 };
+	int towerSize;
+	cout << "How many rings do you want displayed? : ";
+	cin >> towerSize;
+
+	vector<int> tower = {};
+	for (int i = towerSize; i > 0; i--)
+	{
+		tower.push_back(i);
+	}
 	peg peg1;
 	peg1.name = 'A';
 	peg1.stack = tower;
@@ -40,7 +47,6 @@ int main()
 	printPegs(peg1, peg2, peg3);
 	hanoiTower(towerSize, &peg1, &peg2, &peg3);
 	printPegs(peg1, peg2, peg3);
-	system("pause");
 	return 0;
 }
 
@@ -60,6 +66,7 @@ void hanoiTower(int towerSize, peg* from, peg* to, peg* aux)
 
 void printPegs(peg peg1, peg peg2, peg peg3)
 {
+	system("cls");
 	vector<peg> pegs = { peg1, peg2, peg3 };
 	sort(pegs.begin(), pegs.end());
 
@@ -76,4 +83,5 @@ void printPegs(peg peg1, peg peg2, peg peg3)
 		cout << endl;
 	}
 	cout << "+++++++++++++++++++++++" << endl;
+	system("pause");
 }
