@@ -1,109 +1,79 @@
-
 // ConsoleApplication1.cpp : Defines the entry point for the console application.
 //
 
 // #include "stdafx.h"
 #include <string>
 #include <iostream>
-#include <cmath>
 #include <vector>
+#include <algorithm>
 using namespace std;
 //string getInput();
-void hanoiTower(int from, int to, vector<int> towers[]);
+struct peg {
+	char name;
+	vector<int> stack;
+	bool operator<(const peg& a) const
+	{
+		return name < a.name;
+	}
+
+};
+
+void hanoiTower(int towerSize, peg *from, peg *to, peg* aux);
+void printPegs(peg peg1, peg peg2, peg peg3);
+
 
 int main()
 {
 	//auto input = getInput();
 	//cout << input;
 
+	int towerSize = 3;
+	vector<int> tower = { 3,2,1 };
+	peg peg1;
+	peg1.name = 'A';
+	peg1.stack = tower;
+	peg peg2;
+	peg2.name = 'B';
+	peg peg3;
+	peg3.name = 'C';
 
-	// first integer is number of rings ; second is number of places
-	//int towers[3][3] = { {1,NULL,NULL},{ NULL,2,NULL },{ NULL,NULL,3 }, };
-	vector<int> towers[3];
-	towers[0] = { 3,2,1 };
-	towers[1] = { 0,0,0 };
-	towers[2] = { 0,0,0 };
-	hanoiTower(0, 1, towers);
+	printPegs(peg1, peg2, peg3);
+	hanoiTower(towerSize, &peg1, &peg2, &peg3);
+	printPegs(peg1, peg2, peg3);
 	system("pause");
 	return 0;
 }
-/*
-string getInput()
-{
-string in;
-cout << "Enter a command: ";
-cin >> in;
 
-string command = &in.back;
-for (char character : in)
-{
-if (!isnan(character))
-{
-command.push_back(character);
-break;
-}
-}
-return command;
-}
-*/
-/*
-void hanoiTower(int from, int to, int towers[][3])
-{
-int  *topFrom = 0;
-int *topTo = 0;
-for (int i = 0; i < 3; i++)
-{
-if (towers[i][from] != NULL && ( towers[i + 1][from] == NULL || i == towers.size -1))
-{
-topFrom = &towers[i][from];
-}
-if (towers[i][to] != NULL && towers[i + 1][to] == NULL)
-{
-topTo = &towers[i][to];
-}
-}
-if (topFrom < topTo)
-{
 
-}
-else
+void hanoiTower(int towerSize, peg* from, peg* to, peg* aux)
 {
-cout << "Invalid Move";
-}
-cout << "this works";
-}
-
-*/
-// Note to self: Make move controls intigrated at the beginning of method, so only the vector is passed from iteration to iteration
-void hanoiTower(int from, int to, vector<int> towers[])
-{
-
-	for (int i = 0; i < towers->size(); i++)
+	if (towerSize > 0)
 	{
-		cout << i + 1 << "|";
-		for (int j = 0; j < towers[0].size(); j++)
+		hanoiTower(towerSize - 1, from, aux, to);
+		to->stack.push_back(from->stack.back());
+		from->stack.pop_back();
+
+		printPegs(*from, *to, *aux);
+		hanoiTower(towerSize - 1, aux, to, from);
+	}
+}
+
+void printPegs(peg peg1, peg peg2, peg peg3)
+{
+	vector<peg> pegs = { peg1, peg2, peg3 };
+	sort(pegs.begin(), pegs.end());
+
+	for (int i = 0; i < pegs.size(); i++)
+	{
+		cout << pegs[i].name << " | ";
+		if (!(pegs[i].stack.empty()))
 		{
-			if (towers[i][j] != 0 && towers[i][j] != NULL)
+			for (int j = 0; j < pegs[i].stack.size(); j++)
 			{
-				cout << towers[i][j];
-			}
-			else
-			{
-				cout << "-";
+				cout << pegs[i].stack[j] << ",";
 			}
 		}
 		cout << endl;
 	}
-
-	int topFrom = towers[from].back();
-	int topTo = towers[to].back();
-	if (topFrom < topTo)
-	{
-		towers[to].push_back(topFrom);
-		towers[from].pop_back();
-	}
-	else
-	{
-		cout << "Invalid Move";
-	}
+	cout << "+++++++++++++++++++++++" << endl;
 }
